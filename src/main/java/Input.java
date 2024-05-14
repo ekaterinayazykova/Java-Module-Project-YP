@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class Input {
 
-    Scanner scanner = new Scanner(System.in);
-    ArrayList<String> dishesList = new ArrayList<>();
+    private Scanner scanner = new Scanner(System.in);
+    private ArrayList<String> dishesList = new ArrayList<>();
     private double sum = 0;
     private int amountOfPeople = 0;
 
