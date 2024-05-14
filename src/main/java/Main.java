@@ -5,13 +5,7 @@ public class Main {
 
         Input input = new Input();
 
-        int amountOfPeople = input.getAmountOfPeople();
-        String nameOfTheDish = input.getNameOfTheDish("Введите наименование блюда. Для завершения ввода введите \"Завершить\"");
-
-
+        input.getAmountOfPeople();
+        input.getNameOfTheDish("Введите наименование блюда. Для завершения ввода введите \"Завершить\"");
     }
-
 }
-
-
-

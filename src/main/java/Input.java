@@ -4,9 +4,9 @@ import java.util.Scanner;
 public class Input {
 
     Scanner scanner = new Scanner(System.in);
-    ArrayList<String> DishesList = new ArrayList<>();
-    double sum = 0;
-    int amountOfPeople = 0;
+    ArrayList<String> dishesList = new ArrayList<>();
+    private double sum = 0;
+    private int amountOfPeople = 0;
 
     public int getAmountOfPeople() {
         System.out.println("Введите количество гостей");
@@ -30,12 +30,12 @@ public class Input {
 
     public String getNameOfTheDish(String message) {
         System.out.println(message);
-        String nameOfTheDish = scanner.nextLine();
+        String nameOfTheDish;
 
         while (true) {
-            nameOfTheDish = scanner.nextLine();
+            nameOfTheDish = scanner.next();
             if (nameOfTheDish.equalsIgnoreCase("завершить")) {
-                System.out.println("Добавленные блюда:\n" + String.join("\n",DishesList));
+                System.out.println("Добавленные блюда:\n" + String.join("\n",dishesList));
                 String totalSum = getTotalSum(sum, amountOfPeople);
                 System.out.println("Каждый гость должен заплатить " + totalSum);
                 break;
@@ -49,22 +49,20 @@ public class Input {
                         if (priceOfTheDish <= 0) {
                             System.out.println("Введена отрицательная стоимость, введите стоимость блюда в формате 'рубли.копейки', например 10.45 или 11.40.");
                         } else {
-                            DishesList.add(nameOfTheDish);
+                            dishesList.add(nameOfTheDish);
                             sum = sum + priceOfTheDish;
                             System.out.println("Спасибо! Добавлено блюдо '" + nameOfTheDish + "'.\nХотите добавить еще одно блюдо?");
                             break;
                         }
                     } else {
-
                         System.out.println("Введен неверный формат стоимости, введите стоимость блюда в формате 'рубли.копейки', например 10.45 или 11.40.");
                         scanner.nextLine();
                     }
                 }
-                nameOfTheDish = scanner.nextLine();
+                scanner.nextLine();
             }
         }
         return nameOfTheDish;
-
     }
 
     private String getTotalSum(double sum, int amountOfPeople) {
@@ -79,15 +77,6 @@ public class Input {
         } else {
             result2 = " рублей.";
         }
-
         return sumTotal2 + result2;
     }
-
 }
-
-
-
-
-
-
-
