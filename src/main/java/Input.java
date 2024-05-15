@@ -70,9 +70,9 @@ public class Input {
         double sumTotalRound = Math.floor(sumTotal);
         String sumTotal2 = String.format("%.2f", sumTotal);
         String result2;
-        if (sumTotalRound == 1) {
+        if (sumTotalRound % 10 == 1 && sumTotalRound % 100 != 11) {
             result2 = " рубль.";
-        } else if (sumTotalRound >= 2 && sumTotalRound <= 4) {
+        } else if (sumTotalRound % 10 >= 2 && sumTotalRound % 10 <= 4 && !(sumTotalRound % 100 >= 12 && sumTotalRound % 100 <= 14)) {
             result2 = " рубля.";
         } else {
             result2 = " рублей.";
